@@ -25,7 +25,7 @@ function FeedbackForm() {
       }).base('appR5bZ2tntVHNTTF');  
   
       // Sending data to Airtable
-      base('Table 1').create([  
+      base('Contact Us form').create([  
         {
           "fields": {
             "Name": formData.name,
