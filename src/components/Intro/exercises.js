@@ -4,7 +4,7 @@ import './exercises.css'
 
 const ExerciseList = () => {
     const [exercises, setExercises] = useState([]);
-    const [currentExercise, setCurrentExercise] = useState(null); // Ensure this line is present
+    const [currentExercise, setCurrentExercise] = useState(null); 
     const [currentPage, setCurrentPage] = useState(1);
     const [exercisesPerPage] = useState(20);
 
@@ -25,7 +25,7 @@ const ExerciseList = () => {
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     const handleExerciseClick = exercise => {
-        setCurrentExercise(exercise); // Make sure this function sets the currentExercise
+        setCurrentExercise(exercise); 
     };
 
     return (

@@ -28,23 +28,3 @@ const Navbar = () => {
   
   export default Navbar;
 
-
-
-
-// const Navbar = () => {
-//   return (
-//     <nav className="navbar">
-//         <img src={logo} alt="Logo" className='logo' />
-//         <div className='desktopMenu'>
-//             <Link className="desktopMenuListItem">Home</Link>
-//             <Link className="desktopMenuListItem">Exercises</Link>
-//             <Link className="desktopMenuListItem">Injury tracker</Link>
-//         </div>
-//         <button className='desktopMenuButton'>
-//             <img src={contactUs} alt="" className='desktopMenuImg' />Contact Us</button>
-//     </nav>
-//   )
-// }
-
-// export default Navbar;
-
