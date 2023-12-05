@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ContactUs.css';
+import Airtable from 'airtable';
 
 function FeedbackForm() {
   const [formData, setFormData] = useState({
@@ -18,7 +19,29 @@ function FeedbackForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data Submitted:', formData);
+
+    const base = new Airtable({
+        apiKey: 'patqgOmHYMcwbluv2.ae79d26a694a7c5d3cb39efbbc94df9885e02dbde9b264c7ad2a5c48aae83f4d'
+      }).base('appR5bZ2tntVHNTTF');  
+  
+      // Sending data to Airtable
+      base('Table 1').create([  
+        {
+          "fields": {
+            "Name": formData.name,
+            "Email": formData.email,
+            "Feedback": formData.feedback
+          }
+        }
+      ], function(err, records) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        records.forEach(function(record) {
+          console.log(record.getId());
+        });
+      });
   
     // Reset the form data to initial state
     setFormData({
@@ -62,35 +85,3 @@ function FeedbackForm() {
 }
 
 export default FeedbackForm;
-
-
-
-// import React, { useRef } from 'react';
-// import emailjs from '@emailjs/browser';
-
-// export const ContactUs = () => {
-//   const form = useRef();
-
-//   const sendEmail = (e) => {
-//     e.preventDefault();
-
-//     emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
-//       .then((result) => {
-//           console.log(result.text);
-//       }, (error) => {
-//           console.log(error.text);
-//       });
-//   };
-
-//   return (
-//     <form ref={form} onSubmit={sendEmail}>
-//       <label>Name</label>
-//       <input type="text" name="user_name" />
-//       <label>Email</label>
-//       <input type="email" name="user_email" />
-//       <label>Message</label>
-//       <textarea name="message" />
-//       <input type="submit" value="Send" />
-//     </form>
-//   );
-// };
