@@ -22,7 +22,7 @@ function FeedbackForm() {
 
     const base = new Airtable({
         apiKey: 'patqgOmHYMcwbluv2.ae79d26a694a7c5d3cb39efbbc94df9885e02dbde9b264c7ad2a5c48aae83f4d'
-      }).base('appR5bZ2tntVHNTTF');  
+      }).base('appR5bZ2tntVHNTTF');   
   
       // Sending data to Airtable
       base('Contact Us form').create([  
